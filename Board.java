@@ -2,6 +2,7 @@ public class Board {
     private Box[] boxes;
     private String X_axis;
     private String Y_axis;
+    int asdadsdas;
     public Box[] getBoxes(){
         return boxes;
     }
