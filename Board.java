@@ -1,5 +1,5 @@
 public class Board {
-    private Box [] boxes;
+    private Box[] boxes;
     private String X_axis;
     private String Y_axis;
     public Box[] getBoxes(){
