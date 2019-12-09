@@ -107,3 +107,51 @@ public class TresEnRaya extends JFrame implements ActionListener{
 	}
 }
 
+/*
+public boolean isFinished(){
+        if(finished==true)return true;
+        else{
+            for(int i=0;i<3;i++) {
+                if(board.getBoxes()[i].isMarked()&&board.getBoxes()[i+3].isMarked()&&board.getBoxes()[i+6].isMarked()) {
+                    JOptionPane.showMessageDialog(null, "Gano X");
+                    Finish();
+                }
+                if(board.getBoxes()[i*3].isMarked()&&board.getBoxes()[i*3+1].isMarked()&&board.getBoxes()[i*3+2].isMarked()) {
+                    JOptionPane.showMessageDialog(null, "Gano X");
+                    Finish();
+                }
+            }
+            if(board.getBoxes()[0].isMarked()&&board.getBoxes()[4].isMarked()&&board.getBoxes()[8].isMarked()) {
+                JOptionPane.showMessageDialog(null, "Gano X");
+                Finish();
+            }
+            if(board.getBoxes()[2].isMarked()&&board.getBoxes()[4].isMarked()&&board.getBoxes()[6].isMarked()) {
+                JOptionPane.showMessageDialog(null, "Gano X");
+                Finish();
+            }
+            for(int i=0;i<3;i++) {
+                if(board.getBoxes()[i].isFilled()&&board.getBoxes()[i+3].isFilled()&&board.getBoxes()[i+6].isFilled()) {
+                    JOptionPane.showMessageDialog(null, "Gano O");
+                    Finish();
+                }
+                if(board.getBoxes()[i*3].isFilled()&&board.getBoxes()[i*3+1].isFilled()&&board.getBoxes()[i*3+2].isFilled()) {
+                    JOptionPane.showMessageDialog(null, "Gano O");
+                    Finish();
+                }
+            }
+            if(board.getBoxes()[0].isFilled()&&board.getBoxes()[4].isFilled()&&board.getBoxes()[8].isFilled()) {
+                JOptionPane.showMessageDialog(null, "Gano O");
+                Finish();
+            }
+            if(board.getBoxes()[2].isFilled()&&board.getBoxes()[4].isFilled()&&board.getBoxes()[6].isFilled()) {
+                JOptionPane.showMessageDialog(null, "Gano O");
+                Finish();
+            }	
+            if(getNum_Jugadas()>8) {
+                JOptionPane.showMessageDialog(null, "    Empate");
+                Finish();
+            }
+            return finished;
+        }
+    }
+*/
