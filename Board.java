@@ -1,5 +1,6 @@
 public class Board {
     private Box [] boxes;
+    private int  puto;
     public Box[] getBoxes(){
         return boxes;
     }
