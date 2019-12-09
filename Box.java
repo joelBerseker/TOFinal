@@ -44,8 +44,7 @@ public class Box{
     public String one_zero(){
         if(this.isFilled()){
             return "O";
-        }else return " ";
-        if(this.isMarked()){
+        }else if(this.isMarked()){
             return "X";
         }else return " ";
     }
