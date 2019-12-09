@@ -22,7 +22,7 @@ public class Board {
         boxes=new Box[rows*rows];
         setAxis();
         for(int i=0;i<getBoxes().length;i++){
-            boxes[i]=new Box(getX_Axis().charAt(i/rows),getY_axis().charAt(i%rows));
+            boxes[i]=new Box(getX_Axis().charAt(i/rows),getY_Axis().charAt(i%rows));
         }
     }
     public int findBox(String box){
@@ -49,7 +49,7 @@ public class Board {
         }
         return aux*(int)(Math.sqrt(getBoxes().length))+aux2;
     }
-    public void Console_show(){
+    public void show1(){
         for(int i=0;i<getBoxes().length;i++){
             if(i%((int)(Math.sqrt(getBoxes().length)))==0){
                 System.out.println();   
