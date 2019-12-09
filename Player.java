@@ -1,34 +1,36 @@
 public class Player{
-    private Board board;
-    private Player enemy;
-    private int number;
-    public Player(Board board,int number){
-        this.board=board;
-        this.number=number;
-        enemy=null;
+    public String name;
+    public char symbol;
+    public Player(String name){
+        this.name   =   name;
     }
-    public Board getBoard(){
-        return board;
+    public Player(String name, char symbol) {
+        this.name = name;
+        this.symbol = symbol;
     }
-    public int getNumber(){
-        return number;
+    public String getName() {
+        return name;
     }
-    public Player getEnemy(){
-        return enemy;
+
+    public void setName(String name) {
+        this.name = name;
     }
-    public void setEnemy(Player enemy){
-        this.enemy=enemy;
+
+    
+    public char getSymbol() {
+        return symbol;
     }
-    public void setBoard(Board board){
-        this.board=board;
+
+    public void setSymbol(char symbol) {
+        this.symbol = symbol;
     }
-    public void setNumber(int number){
-        this.number=number;
+
+    @Override
+    public String toString() {
+        return "Player [name=" + name + ", symbol=" + symbol + "]";
     }
-    public void attack_play(String box){
-        int index = getBoard().findBox(box);
-        Box selectedBox=getBoard().getBoxes()[index];
-        if(this.getNumber()==1) selectedBox.mark();
-        else selectedBox.fill();
-    }
+
+    
+   
+    
 }

@@ -23,11 +23,12 @@ public class Board {
     
     public void show(){
         for(int i=0;i<getBoxes().length;i++){
-            if(i%rows==0)
-                System.out.println();
-            if(boxes[i]==null)
-                System.out.print(" ");
-            System.out.print(boxes[i]);
+            if(i%rows == 0 )
+                System.out.print("\n|");
+            if(boxes[i]==null){
+                System.out.print(" |");
+                continue;
+            }System.out.print(boxes[i]+"|");
         }
     }
 }
