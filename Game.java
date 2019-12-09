@@ -7,6 +7,14 @@ public class Game{
     private Board board;
     private boolean finished;
     private int num_jugadas;
+    public Game(){
+        board=new Board(3);
+        player1=new Player(board,1);
+        player2=new Player(board,2);
+        finished=false;
+        player1.setEnemy(player2);
+        player2.setEnemy(player1);
+    }
     public int getNum_Jugadas(){
         return num_jugadas;
     }
@@ -80,14 +88,7 @@ public class Game{
     public void setBoard(Board board){
         this.board=board;
     }
-    public Game(){
-        board=new Board(3);
-        player1=new Player(board,1);
-        player2=new Player(board,2);
-        finished=false;
-        player1.setEnemy(player2);
-        player2.setEnemy(player1);
-    }
+ 
     public void Battle(){
         playerTurn(getPlayer1());
         playerTurn(getPlayer2());

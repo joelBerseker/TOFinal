@@ -1,5 +1,6 @@
 public class Demo{
     public static void main(String[]args) {
-		new TresEnRaya();
+		Board n = new Board();
+		n.show();
 	}
 }

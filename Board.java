@@ -1,61 +1,33 @@
 public class Board {
     private Box[] boxes;
-    private String X_axis;
-    private String Y_axis;
-    int asdadsdas;
-    public Box[] getBoxes(){
-        return boxes;
-    }
-    public String getX_Axis(){
-        return X_axis;
-    }
-    public void setAxis(){
-        String aux="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        X_axis=aux.substring(0,(int)Math.sqrt(getBoxes().length));
-        for(int i=0;i<getBoxes().length;i++){
-            Y_axis+=""+i;
-        }
-    }
-    public String getY_Axis(){
-        return Y_axis;
+    private int rows;
+    public Board(){
+        boxes= new Box[9];
+        this.rows=3;
     }
     public Board(int rows){
         boxes=new Box[rows*rows];
-        setAxis();
+        this.rows= rows;
+    }
+    public Box[] getBoxes(){
+        return boxes;
+    }
+    public Box getBox(int x,int y){
+        int num = x*this.rows+y;
+        return boxes[num];
+    }
+    public void setBox(int x,int y,Object Data){
+        int num = x*this.rows+y;
+        boxes[num]=new Box(Data);
+    }
+    
+    public void show(){
         for(int i=0;i<getBoxes().length;i++){
-            boxes[i]=new Box(getX_Axis().charAt(i/rows),getY_Axis().charAt(i%rows));
-        }
-    }
-    public int findBox(String box){
-        char X=box.charAt(0);
-        char Y=box.charAt(1);
-        int aux=0,aux2=0;
-        for(int i=0;i<Math.sqrt(getBoxes().length);i++){
-            if(X==X_axis.charAt(i))
-                aux=i;
-            if(Y==Y_axis.charAt(i))
-                aux2=i;
-        }
-        return aux*(int)(Math.sqrt(getBoxes().length))+aux2;
-    }
-    public int findBox(Box box){
-        char X=box.getX();
-        char Y=box.getY();
-        int aux=0,aux2=0;
-        for(int i=0;i<Math.sqrt(getBoxes().length);i++){
-            if(X==X_axis.charAt(i))
-                aux=i;
-            if(Y==Y_axis.charAt(i))
-                aux2=i;
-        }
-        return aux*(int)(Math.sqrt(getBoxes().length))+aux2;
-    }
-    public void show1(){
-        for(int i=0;i<getBoxes().length;i++){
-            if(i%((int)(Math.sqrt(getBoxes().length)))==0){
-                System.out.println();   
-            }
-            System.out.print(this.getBoxes()[i].one_zero());
+            if(i==rows)
+                System.out.println();
+            if(boxes[i]==null)
+                System.out.println(" ");
+            System.out.println(boxes[i]);
         }
     }
 }
