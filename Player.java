@@ -29,8 +29,4 @@ public class Player{
     public String toString() {
         return "Player [name=" + name + ", symbol=" + symbol + "]";
     }
-
-    
-    
-    
 }

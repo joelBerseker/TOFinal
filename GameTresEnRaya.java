@@ -2,21 +2,20 @@ import java.util.Scanner;
 public class GameTresEnRaya implements Game{
     private Player player1,player2;
     private Board board;
+    private Adapter adapter;
     private boolean finished;
     Scanner sc = new Scanner(System.in);
     public GameTresEnRaya(){
-        this.board      =   new Board();
+        this.board      =   new Board(3,"Tres en Raya");
         this.player1    =   new Player("X");
         this.player2    =   new Player("O");
         this.finished   =   false;
+        adapter = new Adapter();
     }
     public void jugada(Player player){
         System.out.println("Jugador "+player.getName()+" jugada: ");
         String jugada =sc.next();
-        int x = jugada.charAt(0)-'0';
-        x=x-17;
-        int y = jugada.charAt(1)-'0';
-        board.setBox(x, y, player.getSymbol());
+        board.setBox(adapter.AdapterJugada(jugada), player.getSymbol());
     }
     public void Start(){
         while(true){

@@ -1,13 +1,18 @@
 public class Board {
     private Box[] boxes;
     private int rows;
+    private int columns;
+    private String gameName;
     public Board(){
         boxes= new Box[9];
         this.rows=3;
+        this.columns= 3;
     }
-    public Board(int rows){
+    public Board(int rows,String GameName){
         boxes=new Box[rows*rows];
         this.rows= rows;
+        this.columns= rows;
+        this.gameName = GameName;
     }
     public Box[] getBoxes(){
         return boxes;
@@ -20,6 +25,10 @@ public class Board {
         int num = x*this.rows+y;
         boxes[num]=new Box(Data);
     }
+    public void setBox(int[] coor,Object Data){
+        int num = coor[0]*this.rows+coor[1];
+        boxes[num]=new Box(Data);
+    }
     
     public void show(){
         for(int i=0;i<getBoxes().length;i++){
@@ -30,5 +39,21 @@ public class Board {
                 continue;
             }System.out.print(boxes[i]+"|");
         }
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public void setRows(int rows) {
+        this.rows = rows;
+    }
+
+    public String getGameName() {
+        return gameName;
+    }
+
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
     }
 }
