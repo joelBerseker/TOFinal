@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Demo2",
+            "request": "launch",
+            "mainClass": "Demo2"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Demo",
+            "request": "launch",
+            "mainClass": "Demo"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TresEnRaya",
+            "request": "launch",
+            "mainClass": "TresEnRaya"
+        }
+    ]
+}
