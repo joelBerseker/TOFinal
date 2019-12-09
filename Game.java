@@ -81,7 +81,7 @@ public class Game{
         this.board=board;
     }
     public Game(){
-        board=new Board();
+        board=new Board(3);
         player1=new Player(board,1);
         player2=new Player(board,2);
         finished=false;
