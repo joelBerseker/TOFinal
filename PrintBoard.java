@@ -45,7 +45,8 @@ public class PrintBoard extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         JButton n=(JButton)e.getSource();
 			game.getPlayerMoved();	
-            n.setText(String.valueOf(game.getPlayerMoved().getSymbol()));
+            n.setText(String.valueOf(   game.getPlayerMoved().getSymbol()));
+            n.setIcon(new ImageIcon("image\\x.png"));
             n.setEnabled(false);
 			n.setBackground(Color.cyan);
 			cont++;
