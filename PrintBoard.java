@@ -58,5 +58,5 @@ public class PrintBoard extends JFrame implements ActionListener{
             n.setEnabled(false);
 			n.setBackground(Color.cyan);
 			cont++;
-	}
+    }
 }   

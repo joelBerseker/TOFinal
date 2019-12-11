@@ -2,6 +2,18 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Prueba2",
+            "request": "launch",
+            "mainClass": "Prueba2"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - PrintBoard",
+            "request": "launch",
+            "mainClass": "PrintBoard"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - pruebas2",
             "request": "launch",
             "mainClass": "pruebas2"

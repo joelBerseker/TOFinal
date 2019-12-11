@@ -7,7 +7,7 @@ public class Ship{
         this.InitialBox = InitialBox;
         this.FinalBox = FinalBox;
         Number_of_UnmarkedBoxes = numberOfBoxes();
-        fill_IndexOfBoxes();
+        if(Number_of_UnmarkedBoxes>0) fill_IndexOfBoxes();
     }
 
     public Box getInitialBox() {
@@ -39,7 +39,7 @@ public class Ship{
         else return true;
     }
     public int numberOfBoxes(){
-        int index_of_initialBox,index_of_finalBox,r;
+        int index_of_initialBox,index_of_finalBox;
         if(getInitialBox().getIndex()>getFinalBox().getIndex()){
             index_of_initialBox=getFinalBox().getIndex();
             index_of_finalBox=getInitialBox().getIndex();
@@ -49,22 +49,21 @@ public class Ship{
         }
         if(index_of_finalBox-index_of_initialBox<4){
             return index_of_finalBox-index_of_initialBox+1;
-            
-        }else if((index_of_finalBox-index_of_initialBox)%10<=4){
-            return (index_of_finalBox-index_of_initialBox)%10;
+        }else if((index_of_finalBox-index_of_initialBox)/10<=4){
+            return (index_of_finalBox-index_of_initialBox)/10+1;
         }else{
             System.out.println("Las coordenadas ingresadas son incorrectas");
-            return -1;
+            return 0;
         }
     }
     public void fill_IndexOfBoxes(){
         indexOf_boxes=new int[Number_of_UnmarkedBoxes];
         if(FinalBox.getIndex()-InitialBox.getIndex()>=10){
-            for(int i=0;i<FinalBox.getIndex()-InitialBox.getIndex()+1;i+=10){
+            for(int i=0;i<Number_of_UnmarkedBoxes;i+=10){
                 indexOf_boxes[i]=InitialBox.getIndex()+i;
             }
         }else{
-            for(int i=0;i<FinalBox.getIndex()-InitialBox.getIndex();i++){
+            for(int i=0;i<Number_of_UnmarkedBoxes;i++){
                 indexOf_boxes[i]=InitialBox.getIndex()+i;
             }
         }
