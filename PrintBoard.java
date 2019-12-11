@@ -40,7 +40,16 @@ public class PrintBoard extends JFrame implements ActionListener{
         
     }
     void contentsBatleShips(Board board){
-
+        setLayout(new GridLayout(board.getRows(),board.getRows()*2));
+        b =new JButton[board.getRows()][board.getRows()*2];
+        for(int i=0;i<b.length;i++) {
+			for(int j=0;j<b[i].length;j++) {		
+			    b[i][j] =new JButton();
+			    b[i][j].setBounds((i+1)*40,(j+1)*40,200,200);
+			    b[i][j].addActionListener(this);
+			    add(b[i][j]);
+		    }	
+		}
     }
     public void actionPerformed(ActionEvent e) {
         JButton n=(JButton)e.getSource();
@@ -50,5 +59,5 @@ public class PrintBoard extends JFrame implements ActionListener{
             n.setEnabled(false);
 			n.setBackground(Color.cyan);
 			cont++;
-	}
+    }
 }   
