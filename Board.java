@@ -7,6 +7,7 @@ public class Board {
         boxes= new Box[9];
         this.rows=3;
         this.columns= 3;
+        this.gameName="Tres en Raya";
     }
     public Board(int rows,String GameName){
         boxes=new Box[rows*rows];

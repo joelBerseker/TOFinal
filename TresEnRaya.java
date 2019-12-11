@@ -88,11 +88,9 @@ public class TresEnRaya extends JFrame implements ActionListener{
 			}	
 		}
 	}
-	//jugada en cada tablero
 	public void actionPerformed(ActionEvent e) {
         JButton n=(JButton)e.getSource();
-        //se cuenta el numero de jugadas para determinar el turno del jugador
-			if(cont%2==0) {
+    		if(cont%2==0) {
 				n.setText("X");
 				n.setEnabled(false);
 				n.setBackground(Color.cyan);
