@@ -2,12 +2,14 @@ public class Ship{
     private final Box InitialBox, FinalBox;
     private int[] indexOf_boxes;
     private int Number_of_UnmarkedBoxes;
+    private char direction;
 
-    public Ship(final Box InitialBox, final Box FinalBox) {
+    public Ship(Box InitialBox,Box FinalBox) {
         this.InitialBox = InitialBox;
         this.FinalBox = FinalBox;
         Number_of_UnmarkedBoxes = numberOfBoxes();
         if(Number_of_UnmarkedBoxes>0) fill_IndexOfBoxes();
+        setDirection();
     }
 
     public Box getInitialBox() {
@@ -22,7 +24,7 @@ public class Ship{
         return Number_of_UnmarkedBoxes;
     }
 
-    public void setNumber_of_UnmarkedBoxes(final int Number_of_UnmarkedBoxes) {
+    public void setNumber_of_UnmarkedBoxes(int Number_of_UnmarkedBoxes) {
         this.Number_of_UnmarkedBoxes = Number_of_UnmarkedBoxes;
     }
 
@@ -30,7 +32,7 @@ public class Ship{
         return indexOf_boxes;
     }
 
-    public void setIndexOfShipBoxes(final int[] indexOf_boxes) {
+    public void setIndexOfShipBoxes(int[] indexOf_boxes) {
         this.indexOf_boxes=indexOf_boxes;
     }
     public boolean isSunken(){
@@ -68,4 +70,21 @@ public class Ship{
             }
         }
     }
+
+    public char getDirection() {
+        return direction;
+    }
+
+    public void setDirection() {
+        if(getIndexOfShipBoxes()[Number_of_UnmarkedBoxes-1]-getIndexOfShipBoxes()[0]>4){
+            this.direction='s';
+        }else{
+            this.direction='n';
+        }
+    }
+
+    public void changeDirection(char direction) {
+        this.direction=direction;
+    }
+   
 }
