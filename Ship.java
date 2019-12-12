@@ -86,5 +86,4 @@ public class Ship{
     public void changeDirection(char direction) {
         this.direction=direction;
     }
-   
 }
