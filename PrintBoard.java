@@ -2,8 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 public class PrintBoard extends JFrame implements ActionListener{
-    public static int cont=0;
-    private JButton[][] b;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    public static int cont = 0;
+    private Object[][] b;
     private Game game;
     
     public PrintBoard(Game game) {
@@ -32,7 +36,7 @@ public class PrintBoard extends JFrame implements ActionListener{
 			    b[i][j] =new JButton();
 			    b[i][j].setBounds((i+1)*40,(j+1)*40,200,200);
 			    b[i][j].addActionListener(this);
-			    add(b[i][j]);
+			    add((JButton)b[i][j]);
 		    }	
 		}
     }
@@ -41,23 +45,21 @@ public class PrintBoard extends JFrame implements ActionListener{
     }
     void contentsBatleShips(Board board){
         setLayout(new GridLayout(board.getRows(),board.getRows()*2));
-        b =new JButton[board.getRows()][board.getRows()*2];
+        b =new JLabel[board.getRows()][board.getRows()*2];
         for(int i=0;i<b.length;i++) {
 			for(int j=0;j<b[i].length;j++) {		
-			    b[i][j] =new JButton();
+			    /*son botones :v*/b[i][j] =new JButton();
 			    b[i][j].setBounds((i+1)*40,(j+1)*40,200,200);
 			    b[i][j].addActionListener(this);
-			    add(b[i][j]);
+			    add((JLabel)b[i][j]);
 		    }	
 		}
     }
     public void actionPerformed(ActionEvent e) {
-        JButton n=(JButton)e.getSource();
+            JButton n=(JButton)e.getSource();
 			game.getPlayerMoved();	
-            n.setText(String.valueOf(   game.getPlayerMoved().getSymbol()));
             n.setIcon(new ImageIcon("image\\x.png"));
             n.setEnabled(false);
-			n.setBackground(Color.cyan);
-			cont++;
+
     }
-}   
+}
