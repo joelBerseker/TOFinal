@@ -2,6 +2,7 @@ public class Box{
     private Object dataBox;
     private int x,y;
     
+    
     //marked para x, filled para y
     //el eje x siempre lleva vocal de la A a la J
     //el eje y siempre lleva numero del 1 al 10
