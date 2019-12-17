@@ -4,7 +4,7 @@ public class GameBattleShips implements Game {
     private Adapter adapter;
     private boolean finished;
 
-    Scanner sc = new Scanner(System.in);
+    //Scanner sc = new Scanner(System.in);
     public GameBattleShips(){
         this.board      =   new Board(10,"BattleShips");
         this.player1    =   new Player("Jose",'X');

@@ -2,7 +2,7 @@ public class Adapter{
     public Adapter(){
 
     }
-    public int[] AdapterJugada(String a){
+    public int[] AdapterJugada(String jugada){
         int x = jugada.charAt(0)-'0';
         x=x-17;
         int y = jugada.charAt(1)-'0';
