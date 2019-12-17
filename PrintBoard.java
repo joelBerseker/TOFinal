@@ -7,7 +7,7 @@ public class PrintBoard extends JFrame implements ActionListener{
      */
     private static final long serialVersionUID = 1L;
     public static int cont = 0;
-    private Object[][] b;
+    private JLabel[][] b;
     private Game game;
     
     public PrintBoard(Game game) {
@@ -17,7 +17,12 @@ public class PrintBoard extends JFrame implements ActionListener{
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		contents(this.game.getBoard());
-		setVisible(true);
+        setVisible(true);
+        b[0][0].setSize(300, 300);
+        b[0][0].setLocation(25,25);
+        Image img= new ImageIcon("image\\x.png").getImage();
+        ImageIcon img2=new ImageIcon(img.getScaledInstance(78, 124, Image.SCALE_SMOOTH));
+        b[0][0].setIcon(img2);
     }
     public void contents(Board board) {
         if(board.getGameName().equalsIgnoreCase("Tres en Raya")){
@@ -30,13 +35,11 @@ public class PrintBoard extends JFrame implements ActionListener{
     }
     void contentsTreeInLine(Board board){
         setLayout(new GridLayout(board.getRows(),board.getRows()));
-        b =new JButton[board.getRows()][board.getRows()];
+        b =new JLabel[board.getRows()][board.getRows()];
         for(int i=0;i<b.length;i++) {
 			for(int j=0;j<b[i].length;j++) {		
-			    b[i][j] =new JButton();
-			    b[i][j].setBounds((i+1)*40,(j+1)*40,200,200);
-			    b[i][j].addActionListener(this);
-			    add((JButton)b[i][j]);
+			    b[i][j] =new JLabel();
+			    add((JLabel)b[i][j]);
 		    }	
 		}
     }
@@ -48,9 +51,7 @@ public class PrintBoard extends JFrame implements ActionListener{
         b =new JLabel[board.getRows()][board.getRows()*2];
         for(int i=0;i<b.length;i++) {
 			for(int j=0;j<b[i].length;j++) {		
-			    /*son botones :v*/b[i][j] =new JButton();
-			    b[i][j].setBounds((i+1)*40,(j+1)*40,200,200);
-			    b[i][j].addActionListener(this);
+			    /*son botones :v*/b[i][j] =new JLabel();
 			    add((JLabel)b[i][j]);
 		    }	
 		}

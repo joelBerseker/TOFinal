@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - MainGUILaunch",
+            "request": "launch",
+            "mainClass": "MainGUILaunch",
+            "projectName": "TOFinal_8efd4565"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Prueba2",
             "request": "launch",
             "mainClass": "Prueba2"
