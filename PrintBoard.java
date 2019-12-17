@@ -13,7 +13,7 @@ public class PrintBoard extends JFrame implements ActionListener{
     
     public PrintBoard(Game game) {
         this.game=game;
-		setSize(400,400);
+		setSize(500,500);
 		setTitle(this.game.getBoard().getGameName());
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -39,11 +39,7 @@ public class PrintBoard extends JFrame implements ActionListener{
         panelInferior= new JPanel();
         panelIzquierdo= new JPanel();
         panelDerecho=new JPanel();
-        panelSuperior.setSize(400,100);
-        panelInferior.setSize(400,100);
-        panelIzquierdo.setSize(100,200);
-        panelSuperior.setSize(100,200);
-        panelDerecho.setSize(200,200);
+       
         
         if(board.getGameName().equalsIgnoreCase("Tres en Raya")){
             contentsTreeInLine(board);
@@ -56,14 +52,15 @@ public class PrintBoard extends JFrame implements ActionListener{
         panelSuperior.add(new JLabel("MI GAME"));
         panelInferior.setLayout( new FlowLayout(FlowLayout.CENTER));
         panelInferior.add(new JLabel("MI GAME"));
-        panelInferior.add(new JLabel("MI trabajo"));
-        panelIzquierdo.setLayout( new FlowLayout(FlowLayout.CENTER));
+        panelIzquierdo.setLayout(new GridLayout(3,1));
         panelIzquierdo.add(new JLabel("MI GAME"));
-        panelDerecho.setLayout( new FlowLayout(FlowLayout.CENTER));
-        panelDerecho.add(new JLabel("MI GAME"));
-
-        panelInferior.setLayout( new FlowLayout(FlowLayout.CENTER));
-        panelInferior.add(new JLabel("MI GAME"));
+        JTextField jugada=new JTextField("Holi");
+        jugada.setSize(100,200);
+        panelIzquierdo.add(jugada);
+        panelIzquierdo.add(new JButton("Holi"));
+        panelDerecho.setLayout(new GridLayout(3,1));
+        panelDerecho.add(new JTextField("Holi"));
+        panelDerecho.add(new JButton("Holi"));
     }
     void contentsTreeInLine(Board board){
         central.setSize(200,200);
