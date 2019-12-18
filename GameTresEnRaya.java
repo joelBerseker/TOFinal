@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class GameTresEnRaya implements Game{
-    private Player player1,player2;
+    private Player player1,player2,playerturn;;
     private Board board;
     private Adapter adapter;
     private boolean finished;
@@ -11,6 +11,7 @@ public class GameTresEnRaya implements Game{
         this.player1    =   new Player("Jose",'X');
         this.player2    =   new Player("Pedro",'O');
         this.finished   =   false;
+        playerturn      =player1;
         this.adapter = new Adapter();
     }
     public void jugada(Player player){
@@ -44,6 +45,6 @@ public class GameTresEnRaya implements Game{
         this.board = board;
     }
     public Player getPlayerMoved(){
-        return player1;
+    
     }   
 }
