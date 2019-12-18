@@ -73,8 +73,8 @@ public class GameBattleShips implements Game {
     }
 
     @Override
-    public void jugada(Player player) {
-        // TODO Auto-generated method stub
-
+    public int[] jugada(Player player,String jugada) {
+        int [] ret = {1,2};
+        return ret;
     }
 }

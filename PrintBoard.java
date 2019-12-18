@@ -32,6 +32,7 @@ public class PrintBoard extends JFrame implements ActionListener{
         add(panelIzquierdo,BorderLayout.LINE_START);
         add(panelDerecho, BorderLayout.LINE_END);
     
+        //setResizable(false);
         setVisible(true);
         
     }
@@ -47,15 +48,12 @@ public class PrintBoard extends JFrame implements ActionListener{
         panelSuperior.add(new JLabel("MI GAME"));
         panelInferior.setLayout( new FlowLayout(FlowLayout.CENTER));
         panelInferior.add(new JLabel("MI GAME"));
-        panelIzquierdo.setLayout( new GridLayout(3,1));
-        JLabel la = new JLabel("MI GAME");
-        la.setSize(200,200);
-        panelIzquierdo.add(la);
-        jugada=new JTextField("texto");
+        panelIzquierdo.setLayout(new FlowLayout());
+        jugada=new JTextField(10);
         jugada.setSize(200,200);
         
         panelSuperior.add(jugada);
-        panelDerecho.setLayout( new GridLayout(3,1));
+        panelDerecho.setLayout(new FlowLayout());
         JButton envio= new JButton("Tamaño");
         envio.setSize(200,200);
         envio.addActionListener(this);
@@ -107,13 +105,13 @@ public class PrintBoard extends JFrame implements ActionListener{
         
     }
     private JPanel Player1,Player2;
-    private JLabel info;
+    private JPanel info;
     void contentsBatleShips(){
-        central.setLayout(new  BorderLayout());
+        central.setLayout(new FlowLayout());
         Player1= new JPanel(new GridLayout(10,10));
-        info   = new JLabel();
+        info   = new JPanel(new FlowLayout());
         Player2= new JPanel(new GridLayout(10,10));
-        EditSize();
+        
         
         b =new JLabel[this.game.getBoard().getRows()][this.game.getBoard().getColumns()];
         for(int i=0;i<this.game.getBoard().getRows();i++){
@@ -128,9 +126,9 @@ public class PrintBoard extends JFrame implements ActionListener{
                 Player2.add(b[i][j]);
             }
         }
-        central.add(Player1,BorderLayout.LINE_START);
-        central.add(info,BorderLayout.CENTER);
-        central.add(Player2,BorderLayout.LINE_END);
+        central.add(Player1);
+        central.add(info);
+        central.add(Player2);
         for(int i=0;i<game.getBoard().getRows();i++){
             for(int j=0;j<game.getBoard().getColumns();j++){
                 b[i][j].setSize(20,20);
@@ -139,10 +137,11 @@ public class PrintBoard extends JFrame implements ActionListener{
                 b[i][j].setIcon(icono);
             }
         }
+        EditSize();
     }
     public void actionPerformed(ActionEvent e) {
             JButton n=(JButton)e.getSource();
-            n.setText(this.getWidth()+" "+this.getHeight());
+            /*n.setText(this.getWidth()+" "+this.getHeight());
             System.out.println("Plauer 1 = "+Player1.getWidth()+" "+Player1.getHeight());
             System.out.println("Plauer 2 = "+Player2.getWidth()+" "+Player2.getHeight());
             System.out.println("info = "+info.getWidth()+" "+info.getHeight());
@@ -151,22 +150,30 @@ public class PrintBoard extends JFrame implements ActionListener{
             System.out.println("panelAbajo = "+panelInferior.getWidth()+" "+panelInferior.getHeight());
             System.out.println("panel Iz = "+panelIzquierdo.getWidth()+" "+panelIzquierdo.getHeight());
             System.out.println("panel de = "+panelDerecho.getWidth()+" "+panelDerecho.getHeight());
-    }
+            */
+            String jugado =jugada.getText(); 
+            if(jugado.length()==0){
+                JOptionPane.showMessageDialog(null, "Error no ingreso jugada");
+            }else{
+                Player jug= game.getPlayerMoved();
+                int [] jugada = game.jugada(jug,jugado);
+            b[jugada[0]][jugada[1]]=new JLabel(new ImageIcon("image\\"+jug.getSymbol()+".png"), SwingConstants.CENTER);
+            }
+        }
     public void EditSize(){
-        Player1.setSize(220,235);
-
-        Player2.setSize(220,235);
-        info.setSize(50,235);
+        Player1.setSize(200,200);
+        Player2.setSize(200,200);
+        info.setSize(50,200);
         //--------
-        central.setSize(490,235);
+        central.setSize(550,200);
         //--------
-        panelDerecho.setSize(200,235);
-        panelIzquierdo.setSize(200,235);
+        panelDerecho.setSize(50,200);
+        panelIzquierdo.setSize(50,200);
         //---------
-        panelSuperior.setSize(890, 200);
-        panelInferior.setSize(890, 200);
+        panelSuperior.setSize(500, 100);
+        panelInferior.setSize(500, 10);
         //---------
-        setSize(890,635);
+        setSize(500, 300);
         setResizable(false);
     }
 }

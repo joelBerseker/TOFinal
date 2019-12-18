@@ -1,4 +1,7 @@
 import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 public class GameTresEnRaya implements Game{
     private Player player1,player2,playerturn;;
     private Board board;
@@ -14,10 +17,10 @@ public class GameTresEnRaya implements Game{
         playerturn      =player1;
         this.adapter = new Adapter();
     }
-    public void jugada(Player player){
-        System.out.println("Jugador "+player.getName()+" jugada: ");
-        String jugada =sc.next();
+    public int[] jugada(Player player,String jugada){
         board.setBox(adapter.AdapterJugada(jugada), player.getSymbol());
+        return adapter.AdapterJugada(jugada);
+ 
     }
     public void Start(){
         this.finished=false;
@@ -45,6 +48,12 @@ public class GameTresEnRaya implements Game{
         this.board = board;
     }
     public Player getPlayerMoved(){
-    
+        Player temp = playerturn;
+        if(temp.Compare(player1)){
+            playerturn=player2;
+        }else{
+            playerturn=player1;
+        }
+        return temp;
     }   
 }

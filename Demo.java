@@ -4,7 +4,7 @@ public class Demo{
 		//Game game = new GameBattleShips();
 		Game game = new GameTresEnRaya();
 		PrintBoard printL = new PrintBoard(game);
-		printL.EditSize();
+		
 		printL.setVisible(true);
 	}
 }

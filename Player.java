@@ -29,4 +29,8 @@ public class Player{
     public String toString() {
         return "Player [name=" + name + ", symbol=" + symbol + "]";
     }
+    public boolean Compare(Player x){
+        if(this.name.equalsIgnoreCase(x.getName()))return true;
+        return false;
+    }
 }
