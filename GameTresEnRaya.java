@@ -19,38 +19,31 @@ public class GameTresEnRaya implements Game{
         board.setBox(adapter.AdapterJugada(jugada), player.getSymbol());
     }
     public void Start(){
-        System.out.println("Game Over");
+        this.finished=false;
     }
     public boolean isFinished(Player player){
         if(finished)return false;
         return true;
     }
-
     public Player getPlayer1() {
         return player1;
     }
-
     public void setPlayer1(Player player1) {
         this.player1 = player1;
     }
-
     public Player getPlayer2() {
         return player2;
     }
-
     public void setPlayer2(Player player2) {
         this.player2 = player2;
     }
-
     public Board getBoard() {
         return board;
     }
-
     public void setBoard(Board board) {
         this.board = board;
     }
     public Player getPlayerMoved(){
         return player1;
-    }
-    
+    }   
 }

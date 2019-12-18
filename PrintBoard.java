@@ -25,8 +25,8 @@ public class PrintBoard extends JFrame implements ActionListener{
         add(panelIzquierdo,BorderLayout.WEST);
         add(panelDerecho,BorderLayout.EAST);
         setVisible(true);
-        for(int i=0;i<3;i++){
-            for(int j=0;j<3;j++){
+        for(int i=0;i<game.getBoard().getRows();i++){
+            for(int j=0;j<game.getBoard().getColumns();j++){
                 Image img= new ImageIcon("image\\x.png").getImage();
                 ImageIcon img2=new ImageIcon(img.getScaledInstance(78, 124, Image.SCALE_SMOOTH));
                 b[i][j].setIcon(img2);
@@ -39,8 +39,6 @@ public class PrintBoard extends JFrame implements ActionListener{
         panelInferior= new JPanel();
         panelIzquierdo= new JPanel();
         panelDerecho=new JPanel();
-       
-        
         if(board.getGameName().equalsIgnoreCase("Tres en Raya")){
             contentsTreeInLine(board);
         }else if(board.getGameName().equalsIgnoreCase("Botella borracha")){
@@ -77,14 +75,26 @@ public class PrintBoard extends JFrame implements ActionListener{
         
     }
     void contentsBatleShips(Board board){
-        setLayout(new GridLayout(board.getRows(),board.getRows()*2));
-        b =new JLabel[board.getRows()][board.getRows()*2];
-        for(int i=0;i<b.length;i++) {
-			for(int j=0;j<b[i].length;j++) {		
-			    /*son botones :v*/b[i][j] =new JLabel();
-			    add((JLabel)b[i][j]);
-		    }	
-		}
+        central.setLayout(new GridLayout(1,3));
+        JPanel Player1= new JPanel(new GridLayout(10,10));
+        JPanel info   = new JPanel();
+        JPanel Player2= new JPanel(new GridLayout(10,10));
+        b =new JLabel[board.getRows()][board.getColumns()];
+        for(int i=0;i<board.getRows();i++){
+            for(int j=0;j<board.getRows();j++){
+                b[i][j] =new JLabel();
+                Player1.add(b[i][j]);
+            }
+        }
+        for(int i=0;i<board.getRows();i++){
+            for(int j=board.getRows();j<board.getColumns();j++){
+                b[i][j] =new JLabel("trans");
+                Player2.add(b[i][j]);
+            }
+        }
+        central.add(Player1);
+        central.add(info);
+        central.add(Player2);
     }
     public void actionPerformed(ActionEvent e) {
             JButton n=(JButton)e.getSource();

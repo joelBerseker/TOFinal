@@ -6,7 +6,7 @@ public class GameBattleShips implements Game {
 
     //Scanner sc = new Scanner(System.in);
     public GameBattleShips(){
-        this.board      =   new Board(10,"BattleShips");
+        this.board      =   new Board(10,20,"BattleShips");
         this.player1    =   new Player("Jose",'X');
         this.player2    =   new Player("Pedro",'O');
         this.finished   =   false;

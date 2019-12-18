@@ -15,6 +15,12 @@ public class Board {
         this.columns= rows;
         this.gameName = GameName;
     }
+    public Board(int rows,int columns,String GameName){
+        boxes=new Box[rows*rows];
+        this.rows= rows;
+        this.columns= columns;
+        this.gameName = GameName;
+    }
     public Box[] getBoxes(){
         return boxes;
     }
@@ -57,4 +63,13 @@ public class Board {
     public void setGameName(String gameName) {
         this.gameName = gameName;
     }
+
+    public int getColumns() {
+        return columns;
+    }
+
+    public void setColumns(int columns) {
+        this.columns = columns;
+    }
+
 }
