@@ -56,7 +56,7 @@ public class PrintBoard extends JFrame implements ActionListener{
         
         panelSuperior.add(jugada);
         panelDerecho.setLayout(new FlowLayout());
-        JButton envio= new JButton("Tamaño");
+        JButton envio= new JButton("Enviar jugada");
         envio.setSize(200,200);
         envio.addActionListener(this);
         panelSuperior.add(envio);
@@ -159,6 +159,10 @@ public class PrintBoard extends JFrame implements ActionListener{
                     this.jugada.setText("");
                     if(game.isFinished(jug)){
                         JOptionPane.showMessageDialog(null, "Ganaste "+jug.getName()+"\nEres el besto prota");
+                        setVisible(false);
+                    }
+                    if(game.isTied()){
+                        JOptionPane.showMessageDialog(null, "Empate GG");
                         setVisible(false);
                     }
                 }else{
