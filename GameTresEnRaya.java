@@ -61,6 +61,15 @@ public class GameTresEnRaya implements Game{
             return false;
         
     }
+    public boolean isTied(){
+        boolean r=true;
+        for(int i=0;i<this.getBoard().getBoxes().length;i++){
+            if(this.getBoard().getBoxes()[i]==null){
+                r=false;
+            }
+        }
+        return r;
+    }
     public Player getPlayer1() {
         return player1;
     }
