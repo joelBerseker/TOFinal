@@ -4,6 +4,9 @@ public class Player{
     public Player(String name){
         this.name   =   name;
     }
+    public Player(){
+        this.name   =  "";
+    }
     public Player(String name, char symbol) {
         this.name = name;
         this.symbol = symbol;

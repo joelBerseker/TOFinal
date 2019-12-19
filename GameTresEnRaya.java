@@ -1,7 +1,5 @@
 import java.util.Scanner;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 public class GameTresEnRaya implements Game{
     private Player player1,player2,playerturn;;
     private Board board;
@@ -11,23 +9,57 @@ public class GameTresEnRaya implements Game{
     Scanner sc = new Scanner(System.in);
     public GameTresEnRaya(){
         this.board      =   new Board(3,"Tres en Raya");
-        this.player1    =   new Player("Jose",'X');
-        this.player2    =   new Player("Pedro",'O');
         this.finished   =   false;
+        player1 = new Player();
+        player2 = new Player();
+        
         playerturn      =player1;
         this.adapter = new Adapter();
+    }
+    public void iniciarJugadores(){
+        String nom1=JOptionPane.showInputDialog(null, "Introduce el nombre del primer jugador");
+        player1.setName(nom1);
+        player1.setSymbol('x');
+        String nom2=JOptionPane.showInputDialog(null, "Introduce el nombre del segundo jugador");
+        player2.setName(nom2);
+        player2.setSymbol('o');
     }
     public int[] jugada(Player player,String jugada){
         board.setBox(adapter.AdapterJugada(jugada), player.getSymbol());
         return adapter.AdapterJugada(jugada);
- 
     }
     public void Start(){
         this.finished=false;
     }
-    public boolean isFinished(Player player){
-        if(finished)return false;
-        return true;
+        public boolean isFinished(Player player){
+            for(int i=0;i<3;i++) {
+                if(board.getBox(0, i)!=null && board.getBox(0, i).getData()==player.getSymbol() &&
+                board.getBox(1, i)!=null && board.getBox(1, i).getData()==player.getSymbol() &&
+                board.getBox(2, i)!=null && board.getBox(2, i).getData()==player.getSymbol()) {
+                    finished=true;
+                    return true;
+                }
+                if(board.getBox(i, 0)!=null && board.getBox(i, 0).getData()==player.getSymbol() &&
+                board.getBox(i, 1)!=null && board.getBox(i, 1).getData()==player.getSymbol() &&
+                board.getBox(i, 2)!=null && board.getBox(i, 2).getData()==player.getSymbol()) {
+                    finished=true;
+                    return true;
+                }
+            }
+            if(board.getBox(0, 0)!=null && board.getBox(0, 0).getData()==player.getSymbol() &&
+            board.getBox(1, 1)!=null && board.getBox(1, 1).getData()==player.getSymbol() &&
+            board.getBox(2, 2)!=null && board.getBox(2, 2).getData()==player.getSymbol()) {
+                finished=true;
+                return true;
+            }
+            if(board.getBox(0, 2)!=null && board.getBox(0, 2).getData()==player.getSymbol() &&
+            board.getBox(1, 1)!=null && board.getBox(1, 1).getData()==player.getSymbol() &&
+            board.getBox(2, 0)!=null && board.getBox(2, 0).getData()==player.getSymbol()) {
+                finished=true;
+                return true;
+            }        
+            return false;
+        
     }
     public Player getPlayer1() {
         return player1;
@@ -55,5 +87,13 @@ public class GameTresEnRaya implements Game{
             playerturn=player1;
         }
         return temp;
-    }   
+    }
+
+    public Player getPlayerturn() {
+        return playerturn;
+    }
+
+    public void setPlayerturn(Player playerturn) {
+        this.playerturn = playerturn;
+    }
 }

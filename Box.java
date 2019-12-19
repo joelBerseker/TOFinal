@@ -1,5 +1,5 @@
 public class Box{
-    private Object dataBox;
+    private char dataBox;
     private int x,y;
     
     
@@ -7,17 +7,17 @@ public class Box{
     //el eje x siempre lleva vocal de la A a la J
     //el eje y siempre lleva numero del 1 al 10
     //una casilla puede estar marcada y/o ocupada por un barco
-    public Box(Object Data){
+    public Box(char Data){
         this.dataBox=Data;
     }
     public Box(int x, int y) {
         this.x = x;
         this.y = y;
     }
-    public Object getData(){
+    public char getData(){
         return this.dataBox;
     }
-    public void setData(Object Data){
+    public void setData(char Data){
         this.dataBox=Data;
     }
     public int getX() {
@@ -36,7 +36,7 @@ public class Box{
         return x*10+y;
     } 
     public String toString(){
-        return dataBox.toString();
+        return dataBox+"";
     }
 
     

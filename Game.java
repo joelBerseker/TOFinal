@@ -5,4 +5,6 @@ public interface Game{
     public void Start();
     public Board getBoard();
     public Player getPlayerMoved();
+    public Player getPlayerturn();
+    public  void iniciarJugadores();
 }

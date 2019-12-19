@@ -28,11 +28,11 @@ public class Board {
         int num = x*this.rows+y;
         return boxes[num];
     }
-    public void setBox(int x,int y,Object Data){
+    public void setBox(int x,int y,char Data){
         int num = x*this.rows+y;
         boxes[num]=new Box(Data);
     }
-    public void setBox(int[] coor,Object Data){
+    public void setBox(int[] coor,char Data){
         int num = coor[0]*this.rows+coor[1];
         boxes[num]=new Box(Data);
     }

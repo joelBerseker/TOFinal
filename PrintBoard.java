@@ -10,9 +10,10 @@ public class PrintBoard extends JFrame implements ActionListener{
     private JLabel[][] b;
     private Game game;
     private JPanel panelSuperior,panelInferior,central,panelIzquierdo, panelDerecho;
+    private Adapter adapter;
     public PrintBoard(Game game) {
         this.game=game;
-		
+        this.adapter = new Adapter();
 		setTitle(this.game.getBoard().getGameName());
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -31,8 +32,9 @@ public class PrintBoard extends JFrame implements ActionListener{
         add(panelInferior,BorderLayout.PAGE_END);
         add(panelIzquierdo,BorderLayout.LINE_START);
         add(panelDerecho, BorderLayout.LINE_END);
-    
+        setSize(500,500);
         //setResizable(false);
+        game.iniciarJugadores();
         setVisible(true);
         
     }
@@ -141,23 +143,29 @@ public class PrintBoard extends JFrame implements ActionListener{
     }
     public void actionPerformed(ActionEvent e) {
             JButton n=(JButton)e.getSource();
-            /*n.setText(this.getWidth()+" "+this.getHeight());
-            System.out.println("Plauer 1 = "+Player1.getWidth()+" "+Player1.getHeight());
-            System.out.println("Plauer 2 = "+Player2.getWidth()+" "+Player2.getHeight());
-            System.out.println("info = "+info.getWidth()+" "+info.getHeight());
-            System.out.println("central = "+central.getWidth()+" "+central.getHeight());
-            System.out.println("panelArriba = "+panelSuperior.getWidth()+" "+panelSuperior.getHeight());
-            System.out.println("panelAbajo = "+panelInferior.getWidth()+" "+panelInferior.getHeight());
-            System.out.println("panel Iz = "+panelIzquierdo.getWidth()+" "+panelIzquierdo.getHeight());
-            System.out.println("panel de = "+panelDerecho.getWidth()+" "+panelDerecho.getHeight());
-            */
             String jugado =jugada.getText(); 
-            if(jugado.length()==0){
-                JOptionPane.showMessageDialog(null, "Error no ingreso jugada");
+            if(jugado.length()==0 ){
+                JOptionPane.showMessageDialog(null, "jugada incorrecta jugada");
             }else{
-                Player jug= game.getPlayerMoved();
+                Player jug= game.getPlayerturn();
+                System.out.println(jugado);
+                int []verifica= adapter.AdapterJugada(jugado);
+                if(game.getBoard().getBox(verifica[0], verifica[1])==null){
                 int [] jugada = game.jugada(jug,jugado);
-            b[jugada[0]][jugada[1]]=new JLabel(new ImageIcon("image\\"+jug.getSymbol()+".png"), SwingConstants.CENTER);
+                    ImageIcon fot = new ImageIcon("image\\"+jug.getSymbol()+".png");
+                    Icon icono = new ImageIcon(fot.getImage().getScaledInstance(b[jugada[0]][jugada[1]].getWidth(), b[jugada[0]][jugada[1]].getHeight(), Image.SCALE_DEFAULT));
+                    b[jugada[0]][jugada[1]].setIcon(icono);
+                    game.getPlayerMoved();
+                    if(game.isFinished(jug)){
+                        JOptionPane.showMessageDialog(null, "Ganaste "+jug.getName()+"\nEres el besto prota");
+                        setVisible(false);
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Posicion Ocupada");
+                    Box[] a =game.getBoard().getBoxes();
+                    
+                }
+
             }
         }
     public void EditSize(){
