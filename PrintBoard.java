@@ -151,9 +151,9 @@ public class PrintBoard extends JFrame implements ActionListener{
                 System.out.println(jugado);
                 int []verifica= adapter.AdapterJugada(jugado);
                 if(game.getBoard().getBox(verifica[0], verifica[1])==null){
-                int [] jugada = game.jugada(jug,jugado);
+                int [] jugadass = game.jugada(jug,jugado);
                     ImageIcon fot = new ImageIcon("image\\"+jug.getSymbol()+".png");
-                    Icon icono = new ImageIcon(fot.getImage().getScaledInstance(b[jugadas[0]][jugadas[1]].getWidth(), b[jugada[0]][jugada[1]].getHeight(), Image.SCALE_DEFAULT));
+                    Icon icono = new ImageIcon(fot.getImage().getScaledInstance(b[jugadass[0]][jugadass[1]].getWidth(), b[jugadass[0]][jugadass[1]].getHeight(), Image.SCALE_DEFAULT));
                     b[jugadas[0]][jugadas[1]].setIcon(icono);
                     game.getPlayerMoved();
                     this.jugada.setText("");
