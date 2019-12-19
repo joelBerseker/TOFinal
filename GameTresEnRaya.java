@@ -6,7 +6,6 @@ public class GameTresEnRaya implements Game{
     private Adapter adapter;
     private boolean finished;
 
-    Scanner sc = new Scanner(System.in);
     public GameTresEnRaya(){
         this.board      =   new Board(3,"Tres en Raya");
         this.finished   =   false;

@@ -148,7 +148,6 @@ public class PrintBoard extends JFrame implements ActionListener{
                 JOptionPane.showMessageDialog(null, "jugada incorrecta jugada");
             }else{
                 Player jug= game.getPlayerturn();
-                System.out.println(jugado);
                 int []verifica= adapter.AdapterJugada(jugado);
                 if(game.getBoard().getBox(verifica[0], verifica[1])==null){
                 int [] jugadass = game.jugada(jug,jugado);
